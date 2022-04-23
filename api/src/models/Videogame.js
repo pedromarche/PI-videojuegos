@@ -7,6 +7,18 @@ module.exports = (sequelize) => {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: 'compositekey',
     },
+    description: {
+      type: DataTypes.STRING,
+
+    },
+    launch_date: {
+      type: DataTypes.DATEONLY,
+    },
+    rating: {
+      type:DataTypes.INTEGER,
+    }
+
   });
 };
