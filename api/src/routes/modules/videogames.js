@@ -1,7 +1,6 @@
 const {API_KEY} = process.env;
 const { Router } = require('express');
 const axios = require('axios');
-// const Videogame = require('../../models/Videogame');
 const router = Router();
 const {Videogame, Genre } = require('../../db');
 
@@ -54,8 +53,8 @@ router.get('/', async(req, res) => {
         const  name  = req.query.name
         const videogameList = await allVideogames();
         if(name){
-            const gameName = await videogameList.filter(e => e.name.toLowerCase().include(name.toLowerCase()))
-            if(gameName.length >= 0){
+            const gameName = await videogameList.filter(e => e.name.toLowerCase().includes(name.toLowerCase())).slice(0,15)
+            if(gameName.length > 0){
                 return res.status(200).json(gameName);
             }else{
                 return res.status(404).json('el videojuego no existe')
@@ -68,24 +67,6 @@ router.get('/', async(req, res) => {
     }
 })
 
-
-router.post('/', async(req, res) => {
-    try{
-        const {name, description, platforms, released, rating, background_image, genres} = req.body
-        if(!name || !description || !platforms){
-            return res.status(404).json('Falta completar datos obligatorios')
-        }
-        const haveGame = await Videogame.create({name, description, platforms, released, rating, background_image});
-        const haveGenre = await Genre.findAll({
-            where: { name: genres }
-        })
-        haveGame.addGenre(haveGenre);
-        res.status(201).json('el videojuego se a creado correctamente')
-    }catch(e){
-        console.log(e);
-    }
-
-})
 
 
 module.exports = router;
