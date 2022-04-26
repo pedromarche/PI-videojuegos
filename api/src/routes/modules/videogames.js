@@ -18,8 +18,12 @@ const getFromApi = async() => { //traigo los 100 juegos de la api
     
     const props = gameList.map(e => {
                     return {
+                        id: e.id,
                         name : e.name,
                         background_image : e.background_image,
+                        released: e.released,
+                        rating: e.rating,
+                        platforms : e.platforms.map(e => e.platform.name),
                          genres : e.genres.map(e => e.name),
                          }
                     });
