@@ -28,17 +28,18 @@ const getFromApi = async() => { //traigo los 100 juegos de la api
     
 }
 
-const getFromDb = async() => { //traigo juegos de la bd
-    return await Videogame.findAll({
-        include: {
-            model: Genre,
-            attributes: ['name'],
-            through:{                
-                attributes: []
+// module.exports = 
+async function getFromDb() { //traigo juegos de la bd
+        return await Videogame.findAll({
+            include: {
+                model: Genre,
+                attributes: ['name'],
+                through:{                
+                    attributes: []
+                }
             }
-        }
-    })
-}
+        })
+    }
 
 const allVideogames = async() => { // armo una lista con todos los videojuegos
     const api = await getFromApi();
@@ -66,7 +67,6 @@ router.get('/', async(req, res) => {
         console.log(e)
     }
 })
-
 
 
 module.exports = router;
