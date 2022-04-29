@@ -1,11 +1,11 @@
 import './App.css';
 import { Route } from 'react-router-dom';
-import NavBar from './store/components/NavBar'; 
-import CreateGame from './store/components/CreateGame';
-import LandingPage from './store/components/LandingPage';
-import SearchBar from './store/components/SearchBar';
-import Home from './store/components/Home';
-import Videogame from './store/components/Videogame';
+import NavBar from './components/NavBar'; 
+import CreateGame from './components/CreateGame';
+import LandingPage from './components/LandingPage';
+import SearchBar from './components/SearchBar';
+import Home from './components/Home';
+import Videogame from './components/Videogame';
 
 
 function App() {
@@ -13,11 +13,11 @@ function App() {
  
     <div className="App">
       <Route exact path='/' component={LandingPage}/>
-      <Route path='/home' component={NavBar}/>
-      <Route path='/home' exact component={Home}/> 
-      <Route path='/home' component={SearchBar}/>
-      <Route path='/home/CreatGame' component={CreateGame}/>
-      <Route path='/home' component={Videogame}/>
+      {/* <Route path='/Home' component={NavBar}/> */}
+      <Route path='/Home' exact component={Home}/> 
+      {/* <Route path='/Home' component={SearchBar}/> */}
+      {/* <Route path='/Home/CreatGame' component={CreateGame}/>
+      <Route path='/Home' component={Videogame}/> */}
     </div>
  
   );

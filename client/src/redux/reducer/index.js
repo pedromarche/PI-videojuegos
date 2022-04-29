@@ -1,22 +1,50 @@
-import { GET_ALL_GAMES } from '../actions/index'
+import { GET_ALL_GAMES, GET_ALL_GENRES, CREAT_GAME, GAME_DETAIL, GET_NAME } from '../actions/index'
 
 const initialState={
     videogames: [],
-    genres: {}
+    gameDetail: [],
+    genres: [],
+    platforms: []
 }
     
 
-const rootReducer = (state = initialState, action) => {
-    switch(action.type){
+const rootReducer = (state = initialState, {type, payload}) => {
+    switch(type){
         case GET_ALL_GAMES: {
             return{
                 ...state,
-                videogames: action.payload
+                videogames: payload
             }
         }
-        default: return
+        // case GET_ALL_GENRES: {
+        //     return{
+        //         ...state,
+        //         genre: payload          
+        //     }
+        // }
+        // case CREAT_GAME: {
+        //     return{
+        //         ...state,
+        //         videogames: payload
+        //     }
+        // }
+        // case GAME_DETAIL: {
+        //     return{
+        //         ...state,
+        //         gameDetail: payload
+        //     }
+        // }
+        // case GET_NAME:{
+        //     return{
+        //         ...state,
+        //         videogames: payload
+        //     }
+        // }
+        default: return state
     }
 }
+
+
 
 
 export default rootReducer;
