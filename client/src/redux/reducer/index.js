@@ -2,9 +2,9 @@ import { GET_ALL_GAMES, GET_ALL_GENRES, CREAT_GAME, GAME_DETAIL, GET_NAME } from
 
 const initialState={
     videogames: [],
-    gameDetail: [],
     genres: [],
-    platforms: []
+    platforms: [],
+    detailGame:{}
 }
     
 
@@ -22,18 +22,18 @@ const rootReducer = (state = initialState, {type, payload}) => {
         //         genre: payload          
         //     }
         // }
-        // case CREAT_GAME: {
-        //     return{
-        //         ...state,
-        //         videogames: payload
-        //     }
-        // }
-        // case GAME_DETAIL: {
-        //     return{
-        //         ...state,
-        //         gameDetail: payload
-        //     }
-        // }
+        case CREAT_GAME: {
+            return{
+                ...state,
+                videogames: payload
+            }
+        }
+        case GAME_DETAIL: {
+            return{
+                ...state,
+                detailGame: payload
+            }
+        }
         // case GET_NAME:{
         //     return{
         //         ...state,

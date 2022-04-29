@@ -6,7 +6,7 @@ function LandingPage(){
     return(
         <div className='ds'>
             <h1>Zar Videogames</h1>
-            <Link to = '/Home'>
+            <Link to = '/home'>
                 <button>Ingresar</button>
             </Link>
         </div>

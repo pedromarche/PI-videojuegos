@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllGames } from '../../redux/actions';
 import Card from '../Card'
 import Paginado from "../Paginado";
+import NavBar from "../NavBar";
 
 export default function Home() {
 
@@ -30,7 +31,7 @@ export default function Home() {
   }
     return (
       <div> 
-        <Link to= '/CreateGame'> CrearJuego</Link>
+        <NavBar/>
         <h1>juegos juegos juegos</h1>
         <button onClick={e => {handleClick(e)}}>Refresh</button>
         <Paginado

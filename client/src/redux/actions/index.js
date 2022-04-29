@@ -13,11 +13,11 @@ export function getAllGames(){ // trae todos los juegos
     }
 };
 
-// export const getName = (name) => dispatch => { // busca por name
-//     return fetch (`http://localhost:3001/videogames?name=${name}`)
-//     .then(response => response.json())
-//     .then(data => dispatch({type: GET_NAME, payload: data}));
-// }
+export const getName = (name) => dispatch => { // busca por name
+    return fetch (`http://localhost:3001/videogames?name=${name}`)
+    .then(response => response.json())
+    .then(data => dispatch({type: GET_NAME, payload: data}));
+}
 
 // export function getAllGenres(){ //trae todos los generos
 //     return async function(dispatch){
@@ -26,11 +26,14 @@ export function getAllGames(){ // trae todos los juegos
 //     }
 // }
 
-// export const gameDetail = (id) => dispatch => { //trae por id por params
-//     return fetch (`http://localhost:3001/videogame/${id}`)
-//     .then(response => response.json())
-//     .then(data => dispatch({type: GAME_DETAIL, payload: data}));
-// }
+export function gameDetail(id){ //trae por id por params
+    return async function(dispatch){
+    var json = await axios(`http://localhost:3001/videogame/${id}`);
+    return dispatch({type: GAME_DETAIL, payload: json.data})
+    }
+}; 
+        
+    
 
 // export function createGame(){ //crear juego
 //     return async function(dispatch){

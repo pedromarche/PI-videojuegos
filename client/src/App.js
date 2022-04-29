@@ -14,10 +14,10 @@ function App() {
     <div className="App">
       <Route exact path='/' component={LandingPage}/>
       {/* <Route path='/Home' component={NavBar}/> */}
-      <Route path='/Home' exact component={Home}/> 
+      <Route path='/home' exact component={Home}/> 
       {/* <Route path='/Home' component={SearchBar}/> */}
-      {/* <Route path='/Home/CreatGame' component={CreateGame}/>
-      <Route path='/Home' component={Videogame}/> */}
+      {/* <Route path='/Home/CreatGame' component={CreateGame}/> */}
+      <Route path="/home/videogame/:id" component={Videogame}/>
     </div>
  
   );
