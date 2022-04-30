@@ -39,6 +39,7 @@ export default function Home() {
           allGames = {allGames.length}
           paginado = {paginado}
         />
+        
         {
           actualGame && actualGame.map(e => (
             <Card 

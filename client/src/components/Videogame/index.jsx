@@ -46,4 +46,3 @@ export default function Videogame() {
 // rating: e.rating,
 // genres: e.genres.map(e => e.name),
 // platforms: e.platforms.map(e => e.platform.name)
-

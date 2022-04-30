@@ -1,24 +1,29 @@
-// import React from "react";
-// import { useState, useEffect } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { getName } from '../../redux/actions'
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { getName } from '../../redux/actions'
 
 
-// export default function SearchBar() {
-//   const {name} = useParams();
-//   const dispatch = useDispatch();
-//   const searchName = useSelector((state) => state.videogames)
+export default function SearchBar() {
+  const dispatch = useDispatch();
+  const [names, setName] = useState('')
 
-//   useEffect(() => {
-//     dispatch(getName(name))
-//   }, [dispatch, name])
-//     return (
-//     <div>
-//        <input type='text'  placeholder='la barra buscadora'/>
-//        <button type='submit' >buscar</button>
-//     </div>
+  function handleinputChange(e){
+    e.preventDefault()
+    setName(e.target.value)
+  }
+
+  function handleSubmit(e){
+    e.preventDefault()
+    dispatch(getName(names))
+  }
+
+    return (
+    <div>
+       <input onChange={(e) => handleinputChange(e)} type='text'  placeholder='la barra buscadora'/>
+       <button onClick={(e) => handleSubmit(e)} type='submit' >buscar</button>
+    </div>
     
-//     );
-//   }
+    );
+  }
 
 
