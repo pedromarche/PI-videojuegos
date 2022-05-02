@@ -31,7 +31,7 @@ export default function Videogame() {
                         <h3>fecha de lanzamiento:{gamesDetail.map(e=> e.released)} </h3>
                     </div>
                 :
-                (<h1>Cargando....</h1>)
+                <h1>Cargando....</h1>
             }   
         </div>
     )

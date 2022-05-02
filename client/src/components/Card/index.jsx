@@ -10,6 +10,7 @@ export default function Card({name, img, genres, id, realesed, platforms, rating
             <h1><Link to={`/home/videogame/${id}`}>{name}</Link></h1>
             <img className='im' src={img} alt ='Image Not Found'/>
             <h4>{genres}</h4>
+            <h4>{rating}</h4>
         </div>
     )
 }

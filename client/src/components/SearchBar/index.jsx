@@ -15,11 +15,12 @@ export default function SearchBar() {
   function handleSubmit(e){
     e.preventDefault()
     dispatch(getName(names))
+    setName('')
   }
 
     return (
     <div>
-       <input onChange={(e) => handleinputChange(e)} type='text'  placeholder='la barra buscadora'/>
+       <input onChange={(e) => handleinputChange(e)} value ={names} type='text'  placeholder='la barra buscadora'/>
        <button onClick={(e) => handleSubmit(e)} type='submit' >buscar</button>
     </div>
     
