@@ -3,6 +3,7 @@ const { Router } = require('express');
 const axios = require('axios');
 const router = Router();
 const {Videogame, Genre } = require('../../db');
+const e = require('express');
 
 const getFromApi = async() => { //traigo los 100 juegos de la api
     const gameList1 = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}`);
@@ -34,7 +35,7 @@ const getFromApi = async() => { //traigo los 100 juegos de la api
 
 // module.exports = 
 async function getFromDb() { //traigo juegos de la bd
-        return await Videogame.findAll({
+        let gen = await Videogame.findAll({
             include: {
                 model: Genre,
                 attributes: ['name'],
@@ -42,7 +43,31 @@ async function getFromDb() { //traigo juegos de la bd
                     attributes: []
                 }
             }
-        })
+        }) 
+        //mapeo genres para sacarlo del objeto
+        
+        gen = gen.map(({
+            id,
+            name , 
+            background_image,
+            released, 
+            rating,
+            platforms, 
+            Genres,    
+           }) =>({
+        
+            id,
+            name , 
+            background_image,
+            released, 
+            rating,
+            platforms, 
+            genres: Genres.map(e => e.name)   
+           })
+
+           
+           )
+           return gen;
     }
 
 const allVideogames = async() => { // armo una lista con todos los videojuegos
