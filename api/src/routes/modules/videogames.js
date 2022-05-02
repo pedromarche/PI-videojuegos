@@ -26,6 +26,7 @@ const getFromApi = async() => { //traigo los 100 juegos de la api
                         rating: e.rating,
                         platforms : e.platforms.map(e => e.platform.name),
                          genres : e.genres.map(e => e.name),
+                         origin: 'API'
                          }
                     });
     
@@ -62,7 +63,8 @@ async function getFromDb() { //traigo juegos de la bd
             released, 
             rating,
             platforms, 
-            genres: Genres.map(e => e.name)   
+            genres: Genres.map(e => e.name),
+            origin: 'DB'   
            })
 
            
