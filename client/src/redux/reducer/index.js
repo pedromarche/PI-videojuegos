@@ -1,4 +1,4 @@
-import { GET_ALL_GAMES, GET_ALL_GENRES, CREAT_GAME, GAME_DETAIL, GET_NAME, FILTER_RATING, FILTER_NAME, FILTER_GENRE } from '../actions/index'
+import { GET_ALL_GAMES, GET_ALL_GENRES, CREAT_GAME, GAME_DETAIL, GET_NAME, FILTER_RATING, FILTER_NAME, FILTER_GENRE, FILTER_ORIGIN } from '../actions/index'
 
 const initialState={
     videogames: [],
@@ -83,6 +83,14 @@ const rootReducer = (state = initialState, {type, payload}) => {
                 return{
                     ...state,
                     videogames: genreF
+                }
+            }
+            case FILTER_ORIGIN:{
+                const fOrigin = state.nfilt;
+                const originF = payload === 'API' ? fOrigin.filter(o => o.origin === 'API') : fOrigin.filter(o => o.origin === 'DB');
+                return{
+                    ...state,
+                    videogames: payload === 'All' ? state.nfilt : originF
                 }
             }
         default: return state

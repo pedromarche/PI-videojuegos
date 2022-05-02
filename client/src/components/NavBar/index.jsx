@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "../SearchBar";
-import Frating from "../filters/Frating"
-import FilGenre from "../filters/Fgenre";
+import Frating from "../filters/Frating";
+import Fgenre from "../filters/Fgenre";
+import Fdbapi from "../filters/Fdbapi";
 import './Nav.css'
 function NavBar(){
    
@@ -22,7 +23,8 @@ function NavBar(){
             </li>
             <SearchBar/>
             <Frating/>
-            <FilGenre/>
+            <Fgenre/>
+            <Fdbapi/>
 
         </ul>
     </div>    

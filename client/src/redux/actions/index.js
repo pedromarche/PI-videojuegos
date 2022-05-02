@@ -7,6 +7,7 @@ export const GET_NAME = 'GET_NAME';
 export const FILTER_RATING = 'FILTER_RATING';
 export const FILTER_NAME = 'FILTER_NAME';
 export const FILTER_GENRE = 'FILTER_GENRE';
+export const FILTER_ORIGIN = 'FILTER_ORIGIN';
 
 export function getAllGames(){ // trae todos los juegos
     return async function(dispatch){
@@ -59,6 +60,12 @@ export function filterName(payload) {
 export function filterGenre(payload) {
     return {
         type: FILTER_GENRE,
+        payload
+    }
+};
+export function filtOrigin(payload) {
+    return{
+        type: FILTER_ORIGIN,
         payload
     }
 }

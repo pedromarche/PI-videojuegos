@@ -16,7 +16,7 @@ function App() {
       {/* <Route path='/Home' component={NavBar}/> */}
       <Route path='/home' exact component={Home}/> 
       {/* <Route path='/Home' component={SearchBar}/> */}
-      {/* <Route path='/Home/CreatGame' component={CreateGame}/> */}
+      <Route path='/Home/CreatGame' component={CreateGame}/>
       <Route path="/home/videogame/:id" component={Videogame}/>
     </div>
  

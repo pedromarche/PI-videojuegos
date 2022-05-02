@@ -1,7 +1,5 @@
-import React from "react";
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { filterGenre, getAllGenres } from "../../../redux/actions";
 
 
@@ -19,17 +17,17 @@ export default function FilGenre(){
     }
     
     console.log(genres)
-      return(
+    return(
         <div>
-        <select onChange={(e) => handlerFilGenre(e)}>
-            <option value="all">All</option>
-            {
-                genres && genres.map(e => (
-                    <option key = {e.id} value={e.name} name={e.name}>{e.name}</option>
-                    
-                ))
-            }
-        </select>
-    </div>
+            <select onChange={(e) => handlerFilGenre(e)}>
+                <option value="all">All</option>
+                {
+                    genres && genres.map(e => (
+                        <option key = {e.id} value={e.name} name={e.name}>{e.name}</option>
+
+                    ))
+                }
+            </select>
+        </div>
     )
 }
