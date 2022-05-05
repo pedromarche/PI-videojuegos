@@ -25,8 +25,7 @@ const rootReducer = (state = initialState, {type, payload}) => {
         }
         case CREAT_GAME: {
             return{
-                ...state,
-                videogames: payload
+                ...state
             }
         }
         case GAME_DETAIL: {

@@ -33,7 +33,7 @@ export default function Home() {
       <div> 
         <NavBar/>
         <h1>juegos juegos juegos</h1>
-        <button onClick={e => {handleClick(e)}}>Refresh</button>
+        <button onClick={e => {handleClick(e)}}>Refrescar</button>
         <Paginado
           gamesViewPage = {gamesViewPage}
           allGames = {allGames.length}

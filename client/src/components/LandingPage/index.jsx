@@ -4,12 +4,14 @@ import './land.css'
 
 function LandingPage(){
     return(
-        <div className='ds'>
-            <h1>Zar Videogames</h1>
+      <div className='bground'>  
+        <div>
+            <h1 className='tit'>juegos de pedro</h1>
             <Link to = '/home'>
                 <button>Ingresar</button>
             </Link>
         </div>
+      </div>  
     )
 }
 

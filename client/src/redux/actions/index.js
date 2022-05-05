@@ -20,14 +20,14 @@ export const getName = (name) => dispatch => { // busca por name
     return fetch (`http://localhost:3001/videogames?name=${name}`)
     .then(response => response.json())
     .then(data => dispatch({type: GET_NAME, payload: data}));
-}
+};
 
 export function getAllGenres(){ //trae todos los generos
     return async function(dispatch){
         var json = await axios("http://localhost:3001/genres");
         return dispatch({type: GET_ALL_GENRES, payload: json.data});
     }
-}
+};
 
 export function gameDetail(id){ //trae por id por params
     return async function(dispatch){
@@ -36,12 +36,12 @@ export function gameDetail(id){ //trae por id por params
     }
 }; 
 
-// export function createGame(){ //crear juego
-//     return async function(dispatch){
-//         var json = await axios ("http://localhost:3001/videogame")
-//         return dispatch({type: CREAT_GAME, payload: json.data})
-//     }
-// }
+export function createGame(payload){ //crear juego
+    return async function(dispatch){
+        var json = await axios.post("http://localhost:3001/videogame", payload)
+        return json;
+    }
+}
 
 export function filterRatio(payload){
     return {
@@ -68,6 +68,7 @@ export function filtOrigin(payload) {
         type: FILTER_ORIGIN,
         payload
     }
-}
+};
+
 
 

@@ -5,6 +5,7 @@ import Frating from "../filters/Frating";
 import Fgenre from "../filters/Fgenre";
 import Fdbapi from "../filters/Fdbapi";
 import './Nav.css'
+import CreateGame from "../CreateGame";
 function NavBar(){
    
    
@@ -19,7 +20,7 @@ function NavBar(){
                 <Link to='/home'>Zar</Link>
             </li>
             <li>    
-                <Link to='/home/creatGame'>ingresa un juego</Link>
+                <Link to='/home/createGame'>ingresa un juego</Link>
             </li>
             <SearchBar/>
             <Frating/>

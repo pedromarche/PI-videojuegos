@@ -23,7 +23,7 @@ export default function Videogame() {
                     <div>
 
                         <h1>{gamesDetail.map(e=> e.name)}</h1>
-                        <img src={gamesDetail.map(e=> e.img)} alt = 'img not found'></img>
+                        <img src={gamesDetail.map(e=> e.img)} alt = 'img not found' ></img>
                         <h3>descripcion: {gamesDetail.map(e=> e.description)} </h3>
                         <h3>generos:{gamesDetail.map(e=> e.genres)} </h3>
                         <h3>rating:{gamesDetail.map(e=> e.rating)} </h3>
