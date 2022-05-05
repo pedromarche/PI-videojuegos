@@ -6,9 +6,9 @@ function LandingPage(){
     return(
       <div className='bground'>  
         <div>
-            <h1 className='tit'>juegos de pedro</h1>
+            <h1 className='tit'>V-tec games</h1>
             <Link to = '/home'>
-                <button>Ingresar</button>
+                <button className='butt'>Ingresar</button>
             </Link>
         </div>
       </div>  

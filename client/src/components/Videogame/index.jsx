@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { gameDetail } from '../../redux/actions';
@@ -18,6 +18,7 @@ export default function Videogame() {
     return(
     
         <div>
+            <Link to='/home'>Home</Link>
             {
                 gamesDetail ?
                     <div>
@@ -31,7 +32,7 @@ export default function Videogame() {
                         <h3>fecha de lanzamiento:{gamesDetail.map(e=> e.released)} </h3>
                     </div>
                 :
-                <h1>Cargando....</h1>
+                <div class="lds-circle"><div></div></div>
             }   
         </div>
     )

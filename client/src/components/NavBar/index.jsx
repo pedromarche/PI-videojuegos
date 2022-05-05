@@ -17,7 +17,7 @@ function NavBar(){
        <ul>
             
              <li className=".barra">
-                <Link to='/home'>Zar</Link>
+                {/* <Link to='/home'>V-tec</Link> */}
             </li>
             <li>    
                 <Link to='/home/createGame'>ingresa un juego</Link>

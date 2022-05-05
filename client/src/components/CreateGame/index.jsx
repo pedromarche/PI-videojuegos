@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { createGame, getAllGames, getAllGenres } from "../../redux/actions";
+import './Creat.css'
 
 
 function validate(input){
@@ -10,18 +11,21 @@ function validate(input){
   if(!input.name){
     errors.name = 'El nombre es obligatorio'
   }
+  if(!/^((ftp|http|https):\/\/)?([A-z]+)\.([A-z]{2,})$/.test(input.img)){
+    errors.img = 'Debe ingresar un Link'
+  }
   if(!input.description || input.description.length < 15){
     errors.description = 'La descripcion debe tener un minimo de 15 caracteres'
   }
   if(!input.rating){
     errors.rating = 'Debe ingresar un valor'
-  }else if((!/^[1-5]$/.test(input.rating))){
+  }else if(input.rating < 0 || input.rating > 5){
     errors.rating = 'Debe tener un valor entre 1 y 5'
   }
   if(!input.realased){
     errors.realased = 'Por favor ingrese la fecha de lanzamiento'
-  }else if(!/^(?:3[01]|[12][0-9]|0?[1-9])([\-/.])(0?[1-9]|1[1-2])\1\d{4}$/.test(input.realased)){
-    errors.released = "Format error (dd//mm/yy)"
+  }else if(!/(0?[1-9]|1[012])[- /.](0?[1-9]|[12][0-9]|3[01])[- /.](19|20)?[0-9]{2}$/.test(input.realased)){
+    errors.released = "Format error (dd//mm/yyyy)"
   }
   if(input.platforms.length < 1){
     errors.platforms = 'Por favor ingrese las platformas compatibles'
@@ -98,18 +102,23 @@ export default function CreateGame() {
         ...input,
         genres: [...input.genres, e.target.value]
       }))
+    }else{
+      setInput({
+        ...input, 
+        genres: input.genres.filter((g => g !== e.target.value))
+      })
+      setErrors(validate({
+        ...input,
+        genres: [...input.genres, e.target.value]
+      }))
+
     }
     }
 
-  function handleGenreDelete(e) {
-    setInput({
-        ...input,
-        genres: input.genres.filter(g => g !== e)
-    })
-}
-  
+
   const handleSubmit = (e) => {
-  if(input.name && input.img && input.description && input.rating && input.realased && input.platforms && input.genres){  
+  if(input.name && input.img && input.description && input.rating && input.realased && input.platforms && input.genres &&
+     !errors.name && !errors.img && !errors.descriptions && !errors.rating && !errors.realased && !errors.platforms && !errors.genres){  
     e.preventDefault();
     dispatch(createGame(input))
     alert('Juego creado')
@@ -142,6 +151,7 @@ export default function CreateGame() {
         <div>
           <label>Imagen:</label>
           <input type='text' value={input.img} name='img' placeholder="URL" onChange={(e) => handleOnChange(e)}/>
+          <p>{errors.img}</p>
         </div>
         <div>
           <label>Descripcion:</label>
@@ -174,10 +184,35 @@ export default function CreateGame() {
             ))}
           </select>
           <p>{errors.genres}</p>
-          <ul><li>{input.genres.map((e) => (e + ' - '))}<button type='button' onClose={(e) => handleGenreDelete(e)}>x</button></li></ul> 
+          <ul>{input.genres &&
+                  input.genres.map((e) => (
+                    <div key={e + 1}>
+                      <li name={e} value={e}>
+                        {e}{" "}
+                      </li>
+                      <button type="button" onClick={handlerGenre} value={e} className="del">x</button>
+                    </div>
+                    ))}</ul> 
         </div>
         <button type='submit' >Crear juego</button>
       </form>      
     </div>
     )
   }
+
+  // {select &&
+  //   select.map((e) => (
+      // <div key={e + 1} className="Form-genres">
+      //   <li name={e} value={e} className="Form-">
+      //     {e}{" "}
+      //   </li>
+      //   <button
+      //     type="button"
+      //     onClick={handleOnPlatforms}
+      //     value={e}
+      //     className="Form-"
+      //   >
+      //     X
+      //   </button>
+      // </div>
+  //   ))}

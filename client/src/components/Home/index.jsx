@@ -45,7 +45,7 @@ export default function Home() {
             <Card 
               name={e.name}
               genres={e.genres.join(' ')}
-              img={e.background_image}
+              img={e.img}
               rating={e.rating}
               id={e.id}
               createdDb={e.createdDb}

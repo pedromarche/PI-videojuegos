@@ -1,0 +1,27 @@
+.bg{
+        width: 15rem;
+        height: 20rem;
+        background-color: #212121;
+        border-radius: 1rem;
+        border: #212121 0.2rem solid;
+        transition: all 0.4s ease-in;
+        box-shadow: 0.4rem 0.4rem 0.6rem #00000040;
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 10px;
+       }
+       
+       .bg:hover {
+        transform: translateY(-1.5rem);
+        border: #f2295bf0 0.2em solid;
+        border-radius: 2.5rem 0 2.5rem 0;
+       }
+.im{
+    width: 150px;
+    height: 150px;
+    margin-top: 5px;
+}
+.tit{
+    font-size: 20px;
+    line-height: 20px;
+}
