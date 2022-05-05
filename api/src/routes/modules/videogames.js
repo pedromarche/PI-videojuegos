@@ -21,7 +21,7 @@ const getFromApi = async() => { //traigo los 100 juegos de la api
                     return {
                         id: e.id,
                         name : e.name,
-                        background_image : e.background_image,
+                        img : e.background_image,
                         released: e.released,
                         rating: e.rating,
                         platforms : e.platforms.map(e => e.platform.name),
@@ -50,7 +50,7 @@ async function getFromDb() { //traigo juegos de la bd
         gen = gen.map(({
             id,
             name , 
-            background_image,
+            img,
             released, 
             rating,
             platforms, 
@@ -59,7 +59,7 @@ async function getFromDb() { //traigo juegos de la bd
         
             id,
             name , 
-            background_image,
+            img,
             released, 
             rating,
             platforms, 

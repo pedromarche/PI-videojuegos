@@ -70,14 +70,11 @@ router.get('/:id', async(req, res) => {
 
 router.post('/', async(req, res) => {
     try{
-        const {name, description, platforms, released, rating, background_image, genres} = req.body
+        const {name, description, platforms, released, rating, img, genres} = req.body
         if(!name || !description || !platforms){
             return res.status(404).json('Falta completar datos obligatorios')
         }
-        if(!background_image){
-            return ('https://images5.alphacoders.com/701/thumbbig-701401.webp')
-        }
-        const haveGame = await Videogame.create({name, description, platforms, released, rating, background_image});
+        const haveGame = await Videogame.create({name, description, platforms, released, rating, img});
         const haveGenre = await Genre.findAll({
             where: { name: genres }
         })
