@@ -32,7 +32,7 @@ router.get('/:id', async(req, res) => {
                         id: e.id,
                         name: e.name,
                         img: e.background_image,
-                        description: e.description,
+                        description: e.description_raw,
                         released: e.released,
                         rating: e.rating,
                         genres: e.genres.map(e => e.name),
@@ -73,6 +73,9 @@ router.post('/', async(req, res) => {
         const {name, description, platforms, released, rating, background_image, genres} = req.body
         if(!name || !description || !platforms){
             return res.status(404).json('Falta completar datos obligatorios')
+        }
+        if(!background_image){
+            return ('https://images5.alphacoders.com/701/thumbbig-701401.webp')
         }
         const haveGame = await Videogame.create({name, description, platforms, released, rating, background_image});
         const haveGenre = await Genre.findAll({
