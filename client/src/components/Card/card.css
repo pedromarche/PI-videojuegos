@@ -9,6 +9,7 @@
         display: inline-block;
         margin-left: 10px;
         margin-right: 10px;
+        /* position: relative; */
        }
        
        .bg:hover {
@@ -17,11 +18,18 @@
         border-radius: 2.5rem 0 2.5rem 0;
        }
 .im{
-    width: 150px;
+    width: 200px;
     height: 150px;
     margin-top: 5px;
+    border-radius: 2rem;
 }
 .tit{
     font-size: 20px;
     line-height: 20px;
+}
+.gen{
+    color: rgb(209, 255, 255);
+}
+.rat{
+    color: rgb(48, 241, 0); 
 }

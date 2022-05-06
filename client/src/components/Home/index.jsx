@@ -6,6 +6,7 @@ import { getAllGames } from '../../redux/actions';
 import Card from '../Card'
 import Paginado from "../Paginado";
 import NavBar from "../NavBar";
+import './home.css'
 
 export default function Home() {
 
@@ -30,7 +31,7 @@ export default function Home() {
     dispatch(getAllGames());
   }
     return (
-      <div> 
+      <div className="backg"> 
         <NavBar/>
         <h1>juegos juegos juegos</h1>
         <button onClick={e => {handleClick(e)}}>Refrescar</button>
@@ -41,7 +42,8 @@ export default function Home() {
         />
         
         {
-          actualGame && actualGame.map(e => (
+          actualGame.length > 1 ? (
+           actualGame.map(e => (
             <Card 
               name={e.name}
               genres={e.genres.join(' ')}
@@ -52,6 +54,14 @@ export default function Home() {
               key={e.id}
             />
           ))
+          )
+          :
+          (
+            <div className="lds-circle">
+                    <img src='https://i.gifer.com/1gg6.gif' width='500px' alt='' />
+                    <h2>Cargando...</h2>
+                </div>
+          )
         }
       </div>
       ) 

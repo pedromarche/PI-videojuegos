@@ -4,33 +4,31 @@ import SearchBar from "../SearchBar";
 import Frating from "../filters/Frating";
 import Fgenre from "../filters/Fgenre";
 import Fdbapi from "../filters/Fdbapi";
-import './Nav.css'
-import CreateGame from "../CreateGame";
-function NavBar(){
-   
-   
-   
-   
-   
-    return(
-    <div>
-       <ul>
+import './nav.css'
+// import CreateGame from "../CreateGame";
+
+
+export default function NavBar(){
+    
+return(
+  <nav>
+    <div className='top'>
+       <ul className='nav-links'>
             
-             <li className=".barra">
+             <li>
                 {/* <Link to='/home'>V-tec</Link> */}
             </li>
             <li>    
                 <Link to='/home/createGame'>ingresa un juego</Link>
             </li>
+            <li>
             <SearchBar/>
             <Frating/>
             <Fgenre/>
             <Fdbapi/>
-
+            </li>
         </ul>
     </div>    
+  </nav> 
 ) 
 }
-
-
-export default NavBar;
