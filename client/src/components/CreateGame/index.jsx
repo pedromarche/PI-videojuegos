@@ -137,53 +137,54 @@ export default function CreateGame() {
   }
   }
   return (
-    <div>
+    <div className="crbg">
       <Link to='/home'>
-        <button>Home</button>
+        <button className="btt">Home</button>
       </Link>
-      <h1>Crea tu juego.</h1>
+      <div className="carf">
+      <h1 className="tite">Arma tu juego.</h1>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div>
-          <label>Nombre:</label>
-          <input type='text' value={input.name} name='name' placeholder='Titulo' onChange={(e) => handleOnChange(e)}/>
-          <p>{errors.name}</p>
+          <label className="nmr">Nombre:</label>
+          <input className="bar" type='text' value={input.name} name='name' placeholder='Titulo' onChange={(e) => handleOnChange(e)}/>
+          <p className="en">{errors.name}</p>
         </div>
         <div>
-          <label>Imagen:</label>
-          <input type='text' value={input.img} name='img' placeholder="URL" onChange={(e) => handleOnChange(e)}/>
-          <p>{errors.img}</p>
+          <label className="imj">Imagen:</label>
+          <input className="bar" type='text' value={input.img} name='img' placeholder="URL" onChange={(e) => handleOnChange(e)}/>
+          <p className="ei">{errors.img}</p>
         </div>
         <div>
-          <label>Descripcion:</label>
-          <input type='text' value={input.description} name='description' onChange={(e) => handleOnChange(e)}/>
-          <p>{errors.description}</p>
+          <label className="dcp">Descripcion:</label>
+          <input className="bar" type='text' value={input.description} name='description' onChange={(e) => handleOnChange(e)}/>
+          <p className="ed">{errors.description}</p>
         </div>
         <div>
-          <label>Rating:</label>
-          <input type='number' value={input.rating} name='rating' placeholder="1-5" onChange={(e) => handleOnChange(e)}/>
-         <p>{errors.rating}</p>
+          <label className="rti">Rating:</label>
+          <input className="bar" type='number' value={input.rating} name='rating' placeholder="1-5" onChange={(e) => handleOnChange(e)}/>
+         <p className="ee">{errors.rating}</p>
         </div>
         <div>
-          <label>Realased:</label>
-          <input type='date' value={input.realased} name='realased' placeholder="Debe ser una fecha" onChange={(e) => handleOnChange(e)}/>
-          <p>{errors.realased}</p>
+          <label className="rle">Lanzamiento:</label>
+          <input className="bar" type='date' value={input.realased} name='realased' placeholder="Debe ser una fecha" onChange={(e) => handleOnChange(e)}/>
+          <p className="er">{errors.realased}</p>
         </div>
         <div>
-          <label>Plataformas:</label>         
-              <label><input type='checkbox' name='platforms' value='PC' onChange={(e) => handleCheck(e)}/>PC</label>
-              <label><input type='checkbox' name='platforms' value='playstation' onChange={(e) => handleCheck(e)}/>PlayStation</label>
-              <label><input type='checkbox' name='platforms' value='xbox' onChange={(e) => handleCheck(e)}/>Xbox</label>
-              <label><input type='checkbox' name='platforms' value='nint' onChange={(e) => handleCheck(e)}/>Nintendo</label>   
-             <p>{errors.platforms}</p>        
+          <label className="plm">Plataformas:</label>         
+              <label className="plata"><input type='checkbox' name='platforms' value='PC' onChange={(e) => handleCheck(e)}/>PC</label>
+              <label className="plata"><input type='checkbox' name='platforms' value='playstation' onChange={(e) => handleCheck(e)}/>PlayStation</label>
+              <label className="plata"><input type='checkbox' name='platforms' value='xbox' onChange={(e) => handleCheck(e)}/>Xbox</label>
+              <label className="plata"><input type='checkbox' name='platforms' value='nint' onChange={(e) => handleCheck(e)}/>Nintendo</label>   
+             <p className="ep">{errors.platforms}</p>        
         </div>
         <div>
-          <label>Genre:</label>
-          <select onChange={(e) => handlerGenre(e)}>
+          <label className="gnr">Genre:</label>
+          <select className="bar" onChange={(e) => handlerGenre(e)}>
             {genres.map((g) => (
               <option key = {g.id} value={g.name}>{g.name}</option>
             ))}
           </select>
-          <p>{errors.genres}</p>
+          <p className="eg">{errors.genres}</p>
           <ul>{input.genres &&
                   input.genres.map((e) => (
                     <div key={e + 1}>
@@ -194,8 +195,11 @@ export default function CreateGame() {
                     </div>
                     ))}</ul> 
         </div>
-        <button type='submit' >Crear juego</button>
-      </form>      
+        <div className="divb">
+        <button type='submit' className="lsbt" >Crear juego</button>
+        </div>
+      </form> 
+      </div>     
     </div>
     )
   }

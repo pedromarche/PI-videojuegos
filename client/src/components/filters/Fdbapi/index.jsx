@@ -4,11 +4,12 @@ import { filtOrigin } from "../../../redux/actions";
 
 
 
-export default function OriginFilt(){
+export default function OriginFilt({setActualPage}){
     const dispatch = useDispatch();
 
 
     function handlerFilOrigin(e){
+        setActualPage(1)
         e.preventDefault()
         if(e.target.value === 'API' || e.target.value === 'DB'){
             dispatch(filtOrigin(e.target.value))

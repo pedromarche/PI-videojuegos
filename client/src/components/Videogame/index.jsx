@@ -29,10 +29,10 @@ export default function Videogame() {
                         <h1 className='name'>{gamesDetail.map(e=> e.name)}</h1>
                         <img className='igm' src={gamesDetail.map(e=> e.img)} alt = 'img not found'  ></img>
                         <h3 className='desc'>Descripcion: {gamesDetail.map(e=> e.description)} </h3>
-                        <h3 className='gend'>Generos: {gamesDetail.map(e=> e.genres)} </h3>
+                        <h3 className='gend'>Generos: {gamesDetail.map(e=> e.genres).join(', ')} </h3>
                         <h3 className='rat'>Rating: {gamesDetail.map(e=> e.rating)} </h3>
                         <h3 className='rel'>Lanzamiento: {gamesDetail.map(e=> e.released)} </h3>
-                        <h3 className='plat'>Plataformas: {gamesDetail.map(e=> e.platforms)} </h3>
+                        <h3 className='plat'>{gamesDetail.map(e=> e.platforms).join(' , ')} </h3>
                     </div>
                 )
                 :

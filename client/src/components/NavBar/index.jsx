@@ -8,27 +8,26 @@ import './nav.css'
 // import CreateGame from "../CreateGame";
 
 
-export default function NavBar(){
+export default function NavBar({setActualPage}){
     
 return(
-  <nav>
-    <div className='top'>
-       <ul className='nav-links'>
+  
+       <div className='nav-links'>
+            <div className="lint">    
+                <Link to='/home/createGame'>
+                  <button className="batt">Crea tu juego</button>
+                  </Link>
+            </div>
             
-             <li>
-                {/* <Link to='/home'>V-tec</Link> */}
-            </li>
-            <li>    
-                <Link to='/home/createGame'>ingresa un juego</Link>
-            </li>
-            <li>
-            <SearchBar/>
-            <Frating/>
-            <Fgenre/>
-            <Fdbapi/>
-            </li>
-        </ul>
-    </div>    
-  </nav> 
+            <div className="filt">
+              <div className="rr"><Frating setActualPage={setActualPage}/></div>
+              <div className="rr"><Fgenre setActualPage={setActualPage}/></div>
+              <div className="rr"><Fdbapi setActualPage={setActualPage}/></div>
+            </div>
+              <div className="serch">
+                <SearchBar className='sach'/>
+              </div>
+        </div>      
+   
 ) 
 }

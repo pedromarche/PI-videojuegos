@@ -1,35 +1,56 @@
 .bg{
-        width: 15rem;
-        height: 20rem;
+        width: 210px;
+        height: 250px;
         background-color: #212121;
         border-radius: 1rem;
         border: #212121 0.2rem solid;
         transition: all 0.4s ease-in;
         box-shadow: 0.4rem 0.4rem 0.6rem #00000040;
         display: inline-block;
-        margin-left: 10px;
-        margin-right: 10px;
-        /* position: relative; */
+        margin-block-start: auto;
+        margin-left: 30px;
+        margin-right: 30px;
+        margin-top: 50px;
+        position: relative;
        }
        
        .bg:hover {
         transform: translateY(-1.5rem);
-        border: #f2295bf0 0.2em solid;
+        border: #32e0ecf0 0.2em solid;
         border-radius: 2.5rem 0 2.5rem 0;
        }
 .im{
-    width: 200px;
-    height: 150px;
+    width: 180px;
+    height: 110px;
     margin-top: 5px;
     border-radius: 2rem;
+    margin-left: 5px;
+    position:relative;
 }
 .tit{
-    font-size: 20px;
-    line-height: 20px;
+    position: absolute;
+    font-size: 15px;
+    margin-left: 25px;
+    margin-top: 1px;
+    font-family: quicksand;
+    font-size: medium;
 }
 .gen{
     color: rgb(209, 255, 255);
+    position: absolute;
+    margin-top: 70px;
+    margin-left:15px;
+    /* margin-right: 10px; */
+    text-align:left;
+    font-family: manuale;
+    font-size: small;
 }
-.rat{
-    color: rgb(48, 241, 0); 
+.rata{
+    color: rgb(243, 243, 243); 
+    position: absolute;
+    margin-top: 110px;
+    margin-left: 90px;
+    font-family: quicksand;
+    font-size: small;
+
 }

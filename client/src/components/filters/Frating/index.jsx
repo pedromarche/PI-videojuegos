@@ -3,10 +3,11 @@ import { useDispatch } from "react-redux";
 import { filterName, filterRatio } from "../../../redux/actions";
 
 
-export default function FilRating(){
+export default function FilRating({setActualPage}){
     const dispatch = useDispatch();
 
     function handlerFilRating(e){
+        setActualPage(1)
         e.preventDefault()
         if(e.target.value === 'best' || e.target.value === 'worst'){
             dispatch(filterRatio(e.target.value))
@@ -17,14 +18,16 @@ export default function FilRating(){
 
     return (
         <div>
-            <div>
+            <div className="misma">
                 <select onChange={(e) => handlerFilRating(e)}>
+                    <option value='all'>All</option>
                     <option value="best">mayor Rating</option>
                     <option value="worst">menor Rating</option>
                 </select>
             </div>
-            <div>
+            <div className="misma">
                 <select onChange={(e) => handlerFilRating(e)}>
+                    <option value='all'>All</option>
                     <option value="asc">A-Z</option>
                     <option value="desc">Z-A</option>
                 </select>

@@ -41,17 +41,19 @@ const rootReducer = (state = initialState, {type, payload}) => {
             }
         }
         case FILTER_RATING: {
+            const fil = state.nfilt;
             const rfilt = payload === 'best' ? 
             [...state.videogames].sort((a, b) => b.rating - a.rating)
             :
             [...state.videogames].sort((a,b) => a.rating - b.rating)
                 return{
                     ...state,
-                    videogames: rfilt
+                    videogames: payload === 'all' ? fil : rfilt
                 
                 }
         }
         case FILTER_NAME:
+            const fil = state.nfilt;
             const nfilt = payload === 'asc' ?
                 [...state.videogames].sort(function (a, b) {
                     if (a.name > b.name) {
@@ -74,7 +76,7 @@ const rootReducer = (state = initialState, {type, payload}) => {
                 })
             return {
                 ...state,
-                videogames: nfilt
+                videogames: payload === 'all' ? fil : nfilt
             }
             case FILTER_GENRE:{
                 const fGenre = state.nfilt

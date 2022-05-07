@@ -32,9 +32,9 @@ export default function Home() {
   }
     return (
       <div className="backg"> 
-        <NavBar/>
-        <h1>juegos juegos juegos</h1>
-        <button onClick={e => {handleClick(e)}}>Refrescar</button>
+        <NavBar setActualPage={setActualPage}/>
+        <h1 className="vt">V-tec</h1>
+        <button onClick={e => {handleClick(e)}} className='main_div'>Refrescar</button>
         <Paginado
           gamesViewPage = {gamesViewPage}
           allGames = {allGames.length}

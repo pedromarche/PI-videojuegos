@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { filterGenre, getAllGenres } from "../../../redux/actions";
 
 
-export default function FilGenre(){
+export default function FilGenre({setActualPage}){
     const dispatch = useDispatch();
     const genres = useSelector(state => state.genres)
 
@@ -12,6 +12,7 @@ export default function FilGenre(){
       },[dispatch])
     
     function handlerFilGenre(e){
+        setActualPage(1)
         e.preventDefault()
         dispatch(filterGenre(e.target.value))
     }
