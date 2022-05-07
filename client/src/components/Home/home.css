@@ -11,12 +11,12 @@
 .main_div::after {
  padding: 8px 10px;
  font-size: 14px;
- background: linear-gradient(45deg, transparent 5%, #ff013c 5%);
+ background: linear-gradient(45deg, transparent 5%, #363636 5%);
  border: 0;
  color: #fff;
  letter-spacing: 3px;
  line-height: 1;
- box-shadow: 6px 0px 0px #00e6f6;
+ box-shadow: 6px 0px 0px #ff0;
  outline: transparent;
  position: relative;
 }
@@ -35,14 +35,15 @@
  left: 0;
  right: 0;
  bottom: 0;
- background: linear-gradient(45deg, transparent 3%, #00e6f6 3%, #00e6f6 5%, #ff013c 5%);
- text-shadow: -3px -3px 0px #f8f005, 3px 3px 0px #00e6f6;
+ background: linear-gradient(45deg, transparent 3%, #ff0 3%, #ff0 5%, #363636 5%);
+ text-shadow: -3px -3px 0px #ff0, 3px 3px 0px #ff0;
  clip-path: var(--slice-0);
 }
 
 .main_div:hover::after {
  animation: 1s glitch;
  animation-timing-function: steps(2, end);
+ font-family: Suwannaphum;
 }
 
 @keyframes glitch {
@@ -102,5 +103,23 @@
  }
 }
 .vt{
-    color:#df0000
+    color:#ff0;
+    font-family: Suwannaphum;
+}
+.pag{
+    /* background-color: aqua; */
+    height: 25px;   
+    margin-top: 35px;
+    
+}
+.pgbut{
+    padding: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    
+}
+.car{
+    font-family: Suwannaphum;
+    color:#ff0;
+    /* text-shadow: 1.5px 1.5px 1.5px #ff0; */
 }

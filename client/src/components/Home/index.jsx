@@ -32,15 +32,16 @@ export default function Home() {
   }
     return (
       <div className="backg"> 
+        {/* <h1 className="vt">Juegos V-tec</h1> */}
         <NavBar setActualPage={setActualPage}/>
-        <h1 className="vt">V-tec</h1>
         <button onClick={e => {handleClick(e)}} className='main_div'>Refrescar</button>
+        <div className="pag">
         <Paginado
           gamesViewPage = {gamesViewPage}
           allGames = {allGames.length}
           paginado = {paginado}
         />
-        
+        </div>
         {
           actualGame.length > 1 ? (
            actualGame.map(e => (
@@ -58,8 +59,8 @@ export default function Home() {
           :
           (
             <div className="lds-circle">
+                    <h1 className="car">Cargando...</h1>
                     <img src='https://i.gifer.com/1gg6.gif' width='500px' alt='' />
-                    <h2>Cargando...</h2>
                 </div>
           )
         }

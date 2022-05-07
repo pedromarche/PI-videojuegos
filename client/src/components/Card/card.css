@@ -16,7 +16,7 @@
        
        .bg:hover {
         transform: translateY(-1.5rem);
-        border: #32e0ecf0 0.2em solid;
+        border: #ff0 0.2em solid;
         border-radius: 2.5rem 0 2.5rem 0;
        }
 .im{
@@ -32,25 +32,27 @@
     font-size: 15px;
     margin-left: 25px;
     margin-top: 1px;
-    font-family: quicksand;
-    font-size: medium;
+    font-family: Suwannaphum;
+    font-size: large;
+    color:#ff0;
+    text-align: left;
 }
 .gen{
     color: rgb(209, 255, 255);
     position: absolute;
-    margin-top: 70px;
+    margin-top: 65px;
     margin-left:15px;
     /* margin-right: 10px; */
     text-align:left;
-    font-family: manuale;
-    font-size: small;
+    font-family: Suwannaphum;
+    font-size: medium;
 }
 .rata{
     color: rgb(243, 243, 243); 
     position: absolute;
     margin-top: 110px;
     margin-left: 90px;
-    font-family: quicksand;
+    font-family: Suwannaphum;
     font-size: small;
 
 }

@@ -11,7 +11,7 @@
 } */
 .nav-links{
     /* display: flex; */
-    background-color: rgba(233, 250, 0, 0.445);
+    /* background-color: rgba(233, 250, 0, 0.445); */
     position: relative;
     height: 60px;
 
@@ -32,7 +32,7 @@
     border: 3px solid #ff0;
     font-size: 8px;
     position: relative;
-    font-family: inherit;
+    font-family: Suwannaphum;
     background: transparent;
     
   
@@ -83,7 +83,7 @@
    }
    
 .filt{
-    background-color:rgba(128, 255, 0, 0.575);
+    /* background-color:rgba(128, 255, 0, 0.575); */
     width: 500px;
     position: relative;
     display: inline-block;
@@ -92,24 +92,24 @@
     
 }
 .rr{
-    background-color: orange;
+    /* background-color: orange; */
     display: inline-block;
    margin-left: 10px;
    margin-right: 10px;
 }
-.serch{
-    background-color: rgba(255, 20, 145, 0.404);
-    position: relative;
-    margin-top: 1px;
-    width: 300px;
-    float: right;
-    margin-top: 20px;
-    
-}
+.serch {
+  /* background-color: aqua; */
+  position:relative;
+  margin-right:5px;
+  width: 300px;
+  display: inline-block;
+
+   }
 .sach{
-    margin-right: 5px;
     position: absolute;
-    margin-left: 50px;
+    margin-right: 5px;
+    border-radius: 5px;
+    font-family: Suwannaphum;
 }
 .misma{
     display: inline-block;

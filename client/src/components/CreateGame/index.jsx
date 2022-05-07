@@ -25,7 +25,7 @@ function validate(input){
   if(!input.realased){
     errors.realased = 'Por favor ingrese la fecha de lanzamiento'
   }else if(!/(0?[1-9]|1[012])[- /.](0?[1-9]|[12][0-9]|3[01])[- /.](19|20)?[0-9]{2}$/.test(input.realased)){
-    errors.released = "Format error (dd//mm/yyyy)"
+    errors.released = "Formato invalido (dd//mm/yyyy)"
   }
   if(input.platforms.length < 1){
     errors.platforms = 'Por favor ingrese las platformas compatibles'
@@ -147,44 +147,44 @@ export default function CreateGame() {
         <div>
           <label className="nmr">Nombre:</label>
           <input className="bar" type='text' value={input.name} name='name' placeholder='Titulo' onChange={(e) => handleOnChange(e)}/>
-          <p className="en">{errors.name}</p>
+          <p className="ee">{errors.name}</p>
         </div>
         <div>
-          <label className="imj">Imagen:</label>
+          <label className="nmr">Imagen:</label>
           <input className="bar" type='text' value={input.img} name='img' placeholder="URL" onChange={(e) => handleOnChange(e)}/>
-          <p className="ei">{errors.img}</p>
+          <p className="ee">{errors.img}</p>
         </div>
         <div>
-          <label className="dcp">Descripcion:</label>
+          <label className="nmr">Descripcion:</label>
           <input className="bar" type='text' value={input.description} name='description' onChange={(e) => handleOnChange(e)}/>
-          <p className="ed">{errors.description}</p>
+          <p className="ee">{errors.description}</p>
         </div>
         <div>
-          <label className="rti">Rating:</label>
+          <label className="nmr">Rating:</label>
           <input className="bar" type='number' value={input.rating} name='rating' placeholder="1-5" onChange={(e) => handleOnChange(e)}/>
          <p className="ee">{errors.rating}</p>
         </div>
         <div>
-          <label className="rle">Lanzamiento:</label>
+          <label className="nmr">Lanzamiento:</label>
           <input className="bar" type='date' value={input.realased} name='realased' placeholder="Debe ser una fecha" onChange={(e) => handleOnChange(e)}/>
-          <p className="er">{errors.realased}</p>
+          <p className="ee">{errors.realased}</p>
         </div>
         <div>
-          <label className="plm">Plataformas:</label>         
+          <label className="nmr">Plataformas:</label>         
               <label className="plata"><input type='checkbox' name='platforms' value='PC' onChange={(e) => handleCheck(e)}/>PC</label>
               <label className="plata"><input type='checkbox' name='platforms' value='playstation' onChange={(e) => handleCheck(e)}/>PlayStation</label>
               <label className="plata"><input type='checkbox' name='platforms' value='xbox' onChange={(e) => handleCheck(e)}/>Xbox</label>
               <label className="plata"><input type='checkbox' name='platforms' value='nint' onChange={(e) => handleCheck(e)}/>Nintendo</label>   
-             <p className="ep">{errors.platforms}</p>        
+             <p className="ee">{errors.platforms}</p>        
         </div>
         <div>
-          <label className="gnr">Genre:</label>
+          <label className="nmr">Genre:</label>
           <select className="bar" onChange={(e) => handlerGenre(e)}>
             {genres.map((g) => (
               <option key = {g.id} value={g.name}>{g.name}</option>
             ))}
           </select>
-          <p className="eg">{errors.genres}</p>
+          <p className="ee">{errors.genres}</p>
           <ul>{input.genres &&
                   input.genres.map((e) => (
                     <div key={e + 1}>

@@ -15,7 +15,7 @@ export default function Paginado({gamesViewPage, allGames, paginado}){
                 { 
                     pageNum && pageNum.map(n => (
                         <li className="nan" key={n}>
-                            <button onClick={() => paginado(n)}>{n}</button>
+                            <button className='pgbut' onClick={() => paginado(n)}>{n}</button>
                         </li>
                     ))
                 }
