@@ -89,7 +89,7 @@ router.get('/', async(req, res) => {
             if(gameName.length > 0){
                 return res.status(200).json(gameName);
             }else{
-                return res.status(404).json('el videojuego no existe')
+                return res.status(404).json(['el videojuego no existe'])
             }
         }else{
             res.status(200).json(videogameList);
