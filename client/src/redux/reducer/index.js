@@ -10,36 +10,36 @@ const initialState={
 
 const rootReducer = (state = initialState, {type, payload}) => {
     switch(type){
-        case GET_ALL_GAMES: {
+        case GET_ALL_GAMES: 
             return{
                 ...state,
                 videogames: payload,
                 nfilt: payload
-            }
+            
         }
-        case GET_ALL_GENRES: {
+        case GET_ALL_GENRES: 
             return{
                 ...state,
                 genres: payload          
-            }
+            
         }
-        case CREAT_GAME: {
+        case CREAT_GAME: 
             return{
                 ...state
             }
-        }
-        case GAME_DETAIL: {
+        
+        case GAME_DETAIL: 
             return{
                 ...state,
                 detailGame: payload
             }
-        }
-        case GET_NAME:{
+        
+        case GET_NAME:
             return{
                 ...state,
                 videogames: payload
             }
-        }
+        
         case FILTER_RATING: {
             const fil = state.nfilt;
             const rfilt = payload === 'best' ? 

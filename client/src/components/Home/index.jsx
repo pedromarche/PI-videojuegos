@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllGames } from '../../redux/actions';
@@ -16,7 +16,23 @@ export default function Home() {
   const [gamesViewPage, setGamesViewPage] = useState(15);
   const indexOfLastGame = actualPage * gamesViewPage;
   const indexOfFirstGame = indexOfLastGame - gamesViewPage;
-  const actualGame = allGames.slice(indexOfFirstGame, indexOfLastGame);
+  
+  let actualGame 
+
+  if(typeof allGames === 'string'){
+    actualGame = allGames
+  }else{
+    actualGame = allGames.slice(indexOfFirstGame, indexOfLastGame);
+
+  }
+  
+
+  
+  //manejo de errores
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(false)
+
+
 
   const paginado = (pageNum) => {
     setActualPage(pageNum)
@@ -26,13 +42,13 @@ export default function Home() {
     dispatch(getAllGames())
   },[dispatch])
 
+
   function handleClick(e){
     e.preventDefault();
     dispatch(getAllGames());
   }
     return (
       <div className="backg"> 
-        {/* <h1 className="vt">Juegos V-tec</h1> */}
         <NavBar setActualPage={setActualPage}/>
         <button onClick={e => {handleClick(e)}} className='main_div'>Refrescar</button>
         <div className="pag">
@@ -43,11 +59,12 @@ export default function Home() {
         />
         </div>
         {
-          actualGame.length > 1 ? (
+          actualGame.length > 1 && typeof actualGame !== 'string' ? (
+          
            actualGame.map(e => (
             <Card 
               name={e.name}
-              genres={e.genres.join(' ')}
+              genres={e.genres}
               img={e.img}
               rating={e.rating}
               id={e.id}
@@ -56,7 +73,13 @@ export default function Home() {
             />
           ))
           )
-          :
+           : 
+            typeof actualGame === 'string' ? ( // mejorar el mensaje de error
+              <div>
+                <h1>NOOOOOOOOOOFWPIDVNQP</h1> 
+              </div>
+            )            
+           :
           (
             <div className="lds-circle">
                     <h1 className="car">Cargando...</h1>

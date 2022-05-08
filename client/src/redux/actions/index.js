@@ -10,16 +10,24 @@ export const FILTER_GENRE = 'FILTER_GENRE';
 export const FILTER_ORIGIN = 'FILTER_ORIGIN';
 
 export function getAllGames(){ // trae todos los juegos
+    try{
     return async function(dispatch){
         var json = await axios("http://localhost:3001/videogames");
         return dispatch({type: GET_ALL_GAMES, payload: json.data});  
     }
+    }catch(e){
+        console.log(e)
+    }
 };
 
 export const getName = (name) => dispatch => { // busca por name
-    return fetch (`http://localhost:3001/videogames?name=${name}`)
-    .then(response => response.json())
-    .then(data => dispatch({type: GET_NAME, payload: data}));
+    try{
+        return fetch (`http://localhost:3001/videogames?name=${name}`)
+            .then(response => response.json())
+            .then(data => dispatch({type: GET_NAME, payload: data}));
+    }catch(error){
+        console.log(error)
+    }
 };
 
 export function getAllGenres(){ //trae todos los generos
