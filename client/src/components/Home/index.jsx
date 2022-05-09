@@ -16,15 +16,18 @@ export default function Home() {
   const [gamesViewPage, setGamesViewPage] = useState(15);
   const indexOfLastGame = actualPage * gamesViewPage;
   const indexOfFirstGame = indexOfLastGame - gamesViewPage;
-  
-  let actualGame 
+  console.log(allGames, 'antes')
+  let actualGame = allGames.slice(indexOfFirstGame, indexOfLastGame);
+  console.log(actualGame, 'desp')
 
-  if(typeof allGames === 'string'){
-    actualGame = allGames
-  }else{
-    actualGame = allGames.slice(indexOfFirstGame, indexOfLastGame);
+  // if(typeof allGames !== 'string'){
+  //   actualGame = allGames.slice(indexOfFirstGame, indexOfLastGame);
+  //   console.log(actualGame, 'if')
+  // }else{
+  //   actualGame = allGames
+  //   console.log(actualGame, 'else')
 
-  }
+  // }
   
 
   
@@ -59,7 +62,7 @@ export default function Home() {
         />
         </div>
         {
-          actualGame.length > 1 && typeof actualGame !== 'string' ? (
+          actualGame.length > 1 && typeof actualGame !== 'string'  ? (
           
            actualGame.map(e => (
             <Card 
@@ -74,7 +77,7 @@ export default function Home() {
           ))
           )
            : 
-            typeof actualGame === 'string' ? ( // mejorar el mensaje de error
+            typeof actualGame[0] === 'string' ? ( // mejorar el mensaje de error
               <div>
                 <h1>NOOOOOOOOOOFWPIDVNQP</h1> 
               </div>
@@ -90,5 +93,3 @@ export default function Home() {
       </div>
       ) 
   }
-
-
