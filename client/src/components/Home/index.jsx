@@ -1,5 +1,4 @@
 import React from "react";
-// import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllGames } from '../../redux/actions';
@@ -16,27 +15,8 @@ export default function Home() {
   const [gamesViewPage, setGamesViewPage] = useState(15);
   const indexOfLastGame = actualPage * gamesViewPage;
   const indexOfFirstGame = indexOfLastGame - gamesViewPage;
-  console.log(allGames, 'antes')
   let actualGame = allGames.slice(indexOfFirstGame, indexOfLastGame);
-  console.log(actualGame, 'desp')
-
-  // if(typeof allGames !== 'string'){
-  //   actualGame = allGames.slice(indexOfFirstGame, indexOfLastGame);
-  //   console.log(actualGame, 'if')
-  // }else{
-  //   actualGame = allGames
-  //   console.log(actualGame, 'else')
-
-  // }
   
-
-  
-  //manejo de errores
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(false)
-
-
-
   const paginado = (pageNum) => {
     setActualPage(pageNum)
   }
@@ -62,7 +42,7 @@ export default function Home() {
         />
         </div>
         {
-          actualGame.length > 1 && typeof actualGame !== 'string'  ? (
+          actualGame.length > 0 && typeof actualGame[0] !== 'string'  ? (
           
            actualGame.map(e => (
             <Card 
@@ -79,7 +59,7 @@ export default function Home() {
            : 
             typeof actualGame[0] === 'string' ? ( // mejorar el mensaje de error
               <div>
-                <h1>NOOOOOOOOOOFWPIDVNQP</h1> 
+                <h1 className="error">El videojuego no existe</h1> 
               </div>
             )            
            :

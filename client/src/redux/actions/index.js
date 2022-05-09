@@ -10,13 +10,13 @@ export const FILTER_GENRE = 'FILTER_GENRE';
 export const FILTER_ORIGIN = 'FILTER_ORIGIN';
 
 export function getAllGames(){ // trae todos los juegos
-    try{
     return async function(dispatch){
+        try{
         var json = await axios("http://localhost:3001/videogames");
         return dispatch({type: GET_ALL_GAMES, payload: json.data});  
-    }
     }catch(e){
         console.log(e)
+    }
     }
 };
 

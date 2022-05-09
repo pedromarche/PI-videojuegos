@@ -12,6 +12,7 @@ module.exports = (sequelize) => {
   name: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
     },
   description: {
       type: DataTypes.STRING,
@@ -31,7 +32,10 @@ module.exports = (sequelize) => {
     },
   img: {
       type: DataTypes.STRING,
-    }
+    },
+  origin:{
+    type: DataTypes.STRING,
+  }
 
   });
 };

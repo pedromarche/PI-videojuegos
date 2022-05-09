@@ -36,7 +36,7 @@ const getFromApi = async() => { //traigo los 100 juegos de la api
 
 // module.exports = 
 async function getFromDb() { //traigo juegos de la bd
-        let gen = await Videogame.findAll({
+        let dbGame = await Videogame.findAll({
             include: {
                 model: Genre,
                 attributes: ['name'],
@@ -45,9 +45,9 @@ async function getFromDb() { //traigo juegos de la bd
                 }
             }
         }) 
-        //mapeo genres para sacarlo del objeto
+        // mapeo genres para sacarlo del objeto {name: 'genero'}
         
-        gen = gen.map(({
+        dbGame = dbGame.map(({
             id,
             name , 
             img,
@@ -69,13 +69,13 @@ async function getFromDb() { //traigo juegos de la bd
 
            
            )
-           return gen;
+           return dbGame;
     }
 
 const allVideogames = async() => { // armo una lista con todos los videojuegos
     const api = await getFromApi();
     const db = await getFromDb();
-    const allApiDb = api.concat(db);
+    const allApiDb = db.concat(api);
     return allApiDb;
 }
 

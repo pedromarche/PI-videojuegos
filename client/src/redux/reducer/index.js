@@ -25,7 +25,7 @@ const rootReducer = (state = initialState, {type, payload}) => {
         }
         case CREAT_GAME: 
             return{
-                ...state
+                ...state,
             }
         
         case GAME_DETAIL: 
@@ -81,18 +81,47 @@ const rootReducer = (state = initialState, {type, payload}) => {
             case FILTER_GENRE:{
                 const fGenre = state.nfilt
                 const genreF = payload === 'all' ? fGenre : fGenre.filter(p => p.genres.includes(payload))
-                return{
+                if(genreF.length === 0){
+                    alert('no se encontro un juego con ese genero')
+                }else{
+                 return{
                     ...state,
                     videogames: genreF
+                }   
                 }
+                
             }
             case FILTER_ORIGIN:{
                 const fOrigin = state.nfilt;
-                const originF = payload === 'API' ? fOrigin.filter(o => o.origin === 'API') : fOrigin.filter(o => o.origin === 'DB');
-                return{
-                    ...state,
-                    videogames: payload === 'All' ? state.nfilt : originF
+                const fApi = fOrigin.filter(o => o.origin === 'API');
+                const fDB = fOrigin.filter(o => o.origin === 'DB');
+                if(payload === 'DB'){
+                    if(fDB.length !== 0){
+                        return {
+                            ...state,
+                            videogames: fDB
+                        }
+                    }
+                    alert('no hay juego en la base de datos')
+                }else if(payload === 'API'){
+                    if(fApi.length !== 0){
+                        return {
+                            ...state,
+                            videogames: fApi
+                        }
+                    }
+                    alert('no se encontro el juego')
+                }else{
+                    return{
+                        ...state,
+                        videogames: fOrigin
+                    }
                 }
+                // const originF = payload === 'DB' ? fOrigin.filter(o => o.origin === 'DB') : fOrigin.filter(o => o.origin === 'API');
+                // return{
+                //     ...state,
+                //     videogames: payload === 'All' ? fOrigin : originF
+                // }
             }
         default: return state
     }

@@ -45,7 +45,9 @@
     /* margin-right: 10px; */
     text-align:left;
     font-family: Suwannaphum;
-    font-size: medium;
+    font-size: small;
+    /* width: 150px;
+    background-color: rgba(0, 255, 255, 0.534); */
 }
 .rata{
     color: rgb(243, 243, 243); 

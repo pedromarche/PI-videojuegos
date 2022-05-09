@@ -1,3 +1,9 @@
 .nan{
     display: inline-block;
 }
+.pgbut{
+    color: #ff1;
+    border:#ff1;
+    background-color: rgba(0, 0, 0, 0.445);
+    border-radius: 5px;
+}

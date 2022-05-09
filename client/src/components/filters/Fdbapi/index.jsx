@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { filtOrigin } from "../../../redux/actions";
 
@@ -11,14 +11,12 @@ export default function OriginFilt({setActualPage}){
     function handlerFilOrigin(e){
         setActualPage(1)
         e.preventDefault()
-        if(e.target.value === 'API' || e.target.value === 'DB'){
-            dispatch(filtOrigin(e.target.value))
-        }
+        dispatch(filtOrigin(e.target.value))        
     }
 
     return(
         <div>
-            <select onChange={(e) => handlerFilOrigin(e)}>
+            <select className="dd" onChange={(e) => handlerFilOrigin(e)}>
                 <option value = 'All'>All</option>
                 <option value = 'API'>Api</option>
                 <option value = 'DB'>Data Base</option>

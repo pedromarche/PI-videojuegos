@@ -17,10 +17,9 @@ export default function FilGenre({setActualPage}){
         dispatch(filterGenre(e.target.value))
     }
     
-    console.log(genres)
     return(
         <div>
-            <select onChange={(e) => handlerFilGenre(e)}>
+            <select className="dd" onChange={(e) => handlerFilGenre(e)}>
                 <option value="all">All</option>
                 {
                     genres && genres.map(e => (

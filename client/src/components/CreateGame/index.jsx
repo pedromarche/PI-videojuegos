@@ -11,9 +11,9 @@ function validate(input){
   if(!input.name){
     errors.name = 'El nombre es obligatorio'
   }
-  if(!/^((ftp|http|https):\/\/)?([A-z]+)\.([A-z]{2,})$/.test(input.img)){
-    errors.img = 'Debe ingresar un Link'
-  }
+  // if(!/^((ftp|http|https):\/\/)?([A-z]+)\.([A-z]{2,})$/.test(input.img)){
+  //   errors.img = 'Debe ingresar un Link'
+  // }
   if(!input.description || input.description.length < 15){
     errors.description = 'La descripcion debe tener un minimo de 15 caracteres'
   }
@@ -117,8 +117,9 @@ export default function CreateGame() {
 
 
   const handleSubmit = (e) => {
-  if(input.name && input.img && input.description && input.rating && input.realased && input.platforms && input.genres &&
-     !errors.name && !errors.img && !errors.descriptions && !errors.rating && !errors.realased && !errors.platforms && !errors.genres){  
+  // if(input.name && input.img && input.description && input.rating && input.realased && input.platforms && input.genres &&
+  //    !errors.name && !errors.img && !errors.descriptions && !errors.rating && !errors.realased && !errors.platforms && !errors.genres){ 
+    if (Object.keys(errors).length === 0 && input.name && input.description && input.platforms.length !== 0){ 
     e.preventDefault();
     dispatch(createGame(input))
     alert('Juego creado')
@@ -187,8 +188,8 @@ export default function CreateGame() {
           <p className="ee">{errors.genres}</p>
           <ul>{input.genres &&
                   input.genres.map((e) => (
-                    <div key={e + 1}>
-                      <li name={e} value={e}>
+                    <div key={e + 1}className='btp'>
+                      <li name={e} value={e} >
                         {e}{" "}
                       </li>
                       <button type="button" onClick={handlerGenre} value={e} className="del">x</button>

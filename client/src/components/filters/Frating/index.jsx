@@ -18,14 +18,14 @@ export default function FilRating({setActualPage}){
     return (
         <div>
             <div className="misma">
-                <select onChange={(e) => handlerFilRating(e)}>
+                <select className="dd" onChange={(e) => handlerFilRating(e)}>
                     <option value='all'>All</option>
                     <option value="best">mayor Rating</option>
                     <option value="worst">menor Rating</option>
                 </select>
             </div>
             <div className="misma"> 
-                <select onChange={(e) => handlerFilRating(e)}>
+                <select className="dd" onChange={(e) => handlerFilRating(e)}>
                     <option value='all'>All</option>
                     <option value="asc">A-Z</option>
                     <option value="desc">Z-A</option>
