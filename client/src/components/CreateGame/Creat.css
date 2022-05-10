@@ -256,9 +256,32 @@
    .plata{
        color: #ededee;
        font-family: Suwannaphum;
+       border-radius: 5px;
+        border-color: #ff0;
    }
 .btp{
     color:#fff;
     display: inline-block;
+    font-family: Suwannaphum;
 }  
-
+.del{
+    background-color: #000000;
+    border-radius: 3px;
+    border-color: #ff0;
+    color:#ff0;
+    width: 15px;
+    height: 18px;
+    align-items: center;
+}
+.ult{
+    display: inline-block;
+    font-family: Suwannaphum;
+    justify-content: space-between;
+    margin-left: 5px;
+}
+.check{
+    border-radius: 5px;
+    border-color: #ff0;
+    background-color: #0000007c;
+    color: #ededee;
+}

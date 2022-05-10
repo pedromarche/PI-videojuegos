@@ -114,8 +114,6 @@ export default function CreateGame() {
 
 
   const handleSubmit = (e) => {
-  // if(input.name && input.img && input.description && input.rating && input.realased && input.platforms && input.genres &&
-  //    !errors.name && !errors.img && !errors.descriptions && !errors.rating && !errors.realased && !errors.platforms && !errors.genres){ 
     if (Object.keys(errors).length === 0 && input.name && input.description && input.platforms.length !== 0){ 
     e.preventDefault();
     dispatch(createGame(input))
@@ -169,14 +167,14 @@ export default function CreateGame() {
         </div>
         <div>
           <label className="nmr">Plataformas:</label>         
-              <label className="plata"><input type='checkbox' name='platforms' value='PC' onChange={(e) => handleCheck(e)}/>PC</label>
+              <label className="plata"><input type='checkbox' name='platforms' value='PC' onChange={(e) => handleCheck(e)} className='check'/>PC</label>
               <label className="plata"><input type='checkbox' name='platforms' value='playstation' onChange={(e) => handleCheck(e)}/>PlayStation</label>
               <label className="plata"><input type='checkbox' name='platforms' value='xbox' onChange={(e) => handleCheck(e)}/>Xbox</label>
               <label className="plata"><input type='checkbox' name='platforms' value='nint' onChange={(e) => handleCheck(e)}/>Nintendo</label>   
              <p className="ee">{errors.platforms}</p>        
         </div>
         <div>
-          <label className="nmr">Genre:</label>
+          <label className="nmr">Generos:</label>
           <select className="bar" onChange={(e) => handlerGenre(e)}>
             {genres.map((g) => (
               <option key = {g.id} value={g.name}>{g.name}</option>
@@ -186,7 +184,7 @@ export default function CreateGame() {
           <ul>{input.genres &&
                   input.genres.map((e) => (
                     <div key={e + 1}className='btp'>
-                      <li name={e} value={e} >
+                      <li name={e} value={e} className='ult'>
                         {e}{" "}
                       </li>
                       <button type="button" onClick={handlerGenre} value={e} className="del">x</button>
