@@ -11,9 +11,6 @@ function validate(input){
   if(!input.name){
     errors.name = 'El nombre es obligatorio'
   }
-  // if(!/^((ftp|http|https):\/\/)?([A-z]+)\.([A-z]{2,})$/.test(input.img)){
-  //   errors.img = 'Debe ingresar un Link'
-  // }
   if(!input.description || input.description.length < 15){
     errors.description = 'La descripcion debe tener un minimo de 15 caracteres'
   }
@@ -22,9 +19,9 @@ function validate(input){
   }else if(input.rating < 0 || input.rating > 5){
     errors.rating = 'Debe tener un valor entre 1 y 5'
   }
-  if(!input.realased){
-    errors.realased = 'Por favor ingrese la fecha de lanzamiento'
-  }else if(!/(0?[1-9]|1[012])[- /.](0?[1-9]|[12][0-9]|3[01])[- /.](19|20)?[0-9]{2}$/.test(input.realased)){
+  if(!input.released){
+    errors.released = 'Por favor ingrese la fecha de lanzamiento'
+  }else if(!/(0?[1-9]|1[012])[- /.](0?[1-9]|[12][0-9]|3[01])[- /.](19|20)?[0-9]{2}$/.test(input.released)){
     errors.released = "Formato invalido (dd//mm/yyyy)"
   }
   if(input.platforms.length < 1){
@@ -46,7 +43,7 @@ export default function CreateGame() {
     img: '',
     description: '',
     rating:'',
-    realased:'',
+    released:'',
     platforms:[],
     genres:[],
   })
@@ -128,7 +125,7 @@ export default function CreateGame() {
     img: '',
     description: '',
     rating:'',
-    realased:'',
+    released:'',
     platforms:[],
     genres:[],
   })
@@ -167,8 +164,8 @@ export default function CreateGame() {
         </div>
         <div>
           <label className="nmr">Lanzamiento:</label>
-          <input className="bar" type='date' value={input.realased} name='realased' placeholder="Debe ser una fecha" onChange={(e) => handleOnChange(e)}/>
-          <p className="ee">{errors.realased}</p>
+          <input className="bar" type='date' value={input.released} name='released' placeholder="Debe ser una fecha" onChange={(e) => handleOnChange(e)}/>
+          <p className="ee">{errors.released}</p>
         </div>
         <div>
           <label className="nmr">Plataformas:</label>         
@@ -204,20 +201,3 @@ export default function CreateGame() {
     </div>
     )
   }
-
-  // {select &&
-  //   select.map((e) => (
-      // <div key={e + 1} className="Form-genres">
-      //   <li name={e} value={e} className="Form-">
-      //     {e}{" "}
-      //   </li>
-      //   <button
-      //     type="button"
-      //     onClick={handleOnPlatforms}
-      //     value={e}
-      //     className="Form-"
-      //   >
-      //     X
-      //   </button>
-      // </div>
-  //   ))}

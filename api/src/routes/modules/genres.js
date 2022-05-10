@@ -13,19 +13,13 @@ router.get('/', async(req, res) => {
             try{
                 const genApi = await axios.get(`https://api.rawg.io/api/genres?key=${API_KEY}`)
                 const allGenres = genApi.data.results.map(e => e.name)
-                const genre = await allGenres.map(e => {
+                const genres = await allGenres.map(e => {
                   Genre.findOrCreate({
                       where : {
                           name : e
                       }
                   })
                 })
-                // const result = genre.map(e => {
-                //     return{
-                //         id: e.id,
-                //         name: e.name
-                //     }
-                // })
                  return res.status(200).json(allGenres);
             }catch(e){
                 console.log(e)

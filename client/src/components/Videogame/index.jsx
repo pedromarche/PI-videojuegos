@@ -14,7 +14,6 @@ export default function Videogame() {
     useEffect(() => {
         dispatch(gameDetail(id))
     }, [dispatch, id])
-    console.log(gamesDetail)
     
     return(
     
@@ -26,13 +25,13 @@ export default function Videogame() {
                 gamesDetail.length !== 0 ? (
                     <div className='cart'>
 
-                        <h1 className='name'>{gamesDetail.map(e=> e.name)}</h1>
-                        <img className='igm' src={gamesDetail.map(e=> e.img)} alt = 'img not found'  ></img>
-                        <h3 className='desc'>Descripcion: {gamesDetail.map(e=> e.description)} </h3>
-                        <h3 className='gend'>Generos: {gamesDetail.map(e=> e.genres).join(', ')} </h3>
-                        <h3 className='rat'>Rating: {gamesDetail.map(e=> e.rating)} </h3>
-                        <h3 className='rel'>Lanzamiento: {gamesDetail.map(e=> e.released)} </h3>
-                        <h3 className='plat'>{gamesDetail.map(e=> e.platforms).join(' , ')} </h3>
+                        <h1 className='name'>{gamesDetail.name}</h1>
+                        <img className='igm' src={gamesDetail.img} alt = 'img not found'  ></img>
+                        <h3 className='desc'>Descripcion: {gamesDetail.description} </h3>
+                        <h3 className='gend'>Generos: {gamesDetail.genres} </h3>
+                        <h3 className='rat'>Rating: {gamesDetail.rating} </h3>
+                        <h3 className='rel'>Lanzamiento: {gamesDetail.released} </h3>
+                        <h3 className='plat'>{gamesDetail.platforms} </h3>
                     </div>
                 )
                 :
@@ -46,13 +45,11 @@ export default function Videogame() {
         </div>
     )
   }
-//   name, description, platforms, released, rating, background_image, genres
 
-// id: e.id,
-// name: e.name,
-// img: e.background_image,
-// description: e.description,
-// released: e.released,
-// rating: e.rating,
-// genres: e.genres.map(e => e.name),
-// platforms: e.platforms.map(e => e.platform.name)
+//   <h1 className='name'>{gamesDetail.map(e=> e.name)}</h1>
+//   <img className='igm' src={gamesDetail.map(e=> e.img)} alt = 'img not found'  ></img>
+//   <h3 className='desc'>Descripcion: {gamesDetail.map(e=> e.description)} </h3>
+//   <h3 className='gend'>Generos: {gamesDetail.map(e=> e.genres)} </h3>
+//   <h3 className='rat'>Rating: {gamesDetail.map(e=> e.rating)} </h3>
+//   <h3 className='rel'>Lanzamiento: {gamesDetail.map(e=> e.released)} </h3>
+//   <h3 className='plat'>{gamesDetail.map(e=> e.platforms)} </h3>

@@ -20,7 +20,12 @@ module.exports = (sequelize) => {
     },
     released: {
       type: DataTypes.DATEONLY,
-      defaultValue: DataTypes.NOW  
+      validate: {
+        isDate: true,
+        isAfter: '1990-01-01',
+        isBefore: '2022-12-12' 
+
+      }
     },
   rating: {
       type:DataTypes.FLOAT,

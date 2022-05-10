@@ -117,11 +117,6 @@ const rootReducer = (state = initialState, {type, payload}) => {
                         videogames: fOrigin
                     }
                 }
-                // const originF = payload === 'DB' ? fOrigin.filter(o => o.origin === 'DB') : fOrigin.filter(o => o.origin === 'API');
-                // return{
-                //     ...state,
-                //     videogames: payload === 'All' ? fOrigin : originF
-                // }
             }
         default: return state
     }

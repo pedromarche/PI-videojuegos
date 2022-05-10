@@ -3,7 +3,7 @@ const { Router } = require('express');
 const axios = require('axios');
 const router = Router();
 const {Videogame, Genre } = require('../../db');
-const e = require('express');
+// const e = require('express');
 
 const getFromApi = async() => { //traigo los 100 juegos de la api
     const gameList1 = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}`);
@@ -25,7 +25,7 @@ const getFromApi = async() => { //traigo los 100 juegos de la api
                         released: e.released,
                         rating: e.rating,
                         platforms : e.platforms.map(e => e.platform.name),
-                         genres : e.genres.map(e => e.name),
+                         genres : e.genres.map(e => e.name).join('-'),
                          origin: 'API'
                          }
                     });
@@ -54,7 +54,7 @@ async function getFromDb() { //traigo juegos de la bd
             released, 
             rating,
             platforms, 
-            Genres,    
+            genres,    
            }) =>({
         
             id,
@@ -63,7 +63,7 @@ async function getFromDb() { //traigo juegos de la bd
             released, 
             rating,
             platforms, 
-            genres: Genres.map(e => e.name),
+            genres: genres.map(e => e.name).join('-'),
             origin: 'DB'   
            })
 
