@@ -21,15 +21,15 @@ export function getAllGames(){ // trae todos los juegos
     }
 };
 
-export const getName = (name) => dispatch => { // busca por name
-    try{
-        return fetch (`http://localhost:3001/videogames?name=${name}`)
-            .then(response => response.json())
-            .then(data => dispatch({type: GET_NAME, payload: data}));
-    }catch(error){
-        console.log(error)
-    }
-};
+// export const getName = (name) => dispatch => { // busca por name
+//     try{
+//         return fetch (`http://localhost:3001/videogames?name=${name}`)
+//             .then(response => response.json())
+//             .then(data => dispatch({type: GET_NAME, payload: data}));
+//     }catch(error){
+//         console.log(error)
+//     }
+// };
 
 export function getAllGenres(){ //trae todos los generos
     return async function(dispatch){
@@ -85,4 +85,10 @@ export function clearPage(){
 }
 
 
-
+export const getName = (name) => dispatch => { // busca por name
+  
+        return fetch (`http://localhost:3001/videogames?name=${name}`)
+            .then(response => response.json())
+            .then(data => dispatch({type: GET_NAME, payload: data}))
+            .catch(e => console.log(e))   
+}

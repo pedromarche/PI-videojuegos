@@ -71,7 +71,7 @@ export default function CreateGame() {
 
   function handleCheck(e) {
     const repeat = input.platforms.includes(e.target.value)
-    if(!repeat){
+    if(e.target.checked && !repeat){
       setInput({
           ...input,
           platforms:[...input.platforms, e.target.value]
@@ -85,6 +85,10 @@ export default function CreateGame() {
         ...input,
         platforms: input.platforms.filter((p) => p !== e.target.value)
         })
+        setErrors(validate({
+          ...input,
+          platforms: input.platforms.filter((p) => p !== e.target.value)
+        }))
 
       }
       

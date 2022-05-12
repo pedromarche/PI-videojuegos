@@ -4,7 +4,7 @@ import { getName } from '../../redux/actions'
 import './search.css'
 
 
-export default function SearchBar() {
+export default function SearchBar({setActualPage}) {
   const dispatch = useDispatch();
   const [names, setName] = useState('')
   
@@ -15,9 +15,10 @@ export default function SearchBar() {
   
 
   function handleSubmit(e){
-      e.preventDefault()
-      dispatch(getName(names))
-      setName('')
+    e.preventDefault()
+    dispatch(getName(names))
+    setActualPage(1)
+    setName('')
     }
   
 

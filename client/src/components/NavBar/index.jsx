@@ -25,7 +25,7 @@ return(
               <div className="rr"><Fdbapi setActualPage={setActualPage}/></div>
             </div>
               <div className="serch">
-                <SearchBar className='sach'/>
+                <SearchBar setActualPage={setActualPage} className='sach'/>
               </div>
         </div>      
    

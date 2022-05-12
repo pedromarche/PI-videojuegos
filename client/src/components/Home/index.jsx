@@ -51,6 +51,7 @@ export default function Home() {
               img={e.img}
               rating={e.rating}
               id={e.id}
+              platforms={e.platforms}
               createdDb={e.createdDb}
               key={e.id}
             />
