@@ -3,7 +3,7 @@ const { Router } = require('express');
 const axios = require('axios');
 const router = Router();
 const {Videogame, Genre } = require('../../db');
-// const e = require('express');
+
 
 const getFromApi = async() => { //traigo los 100 juegos de la api
     const gameList1 = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}`);

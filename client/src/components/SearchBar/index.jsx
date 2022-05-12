@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-// import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { getName } from '../../redux/actions'
 import './search.css'
 
@@ -8,7 +7,6 @@ import './search.css'
 export default function SearchBar() {
   const dispatch = useDispatch();
   const [names, setName] = useState('')
-  // const history = useHistory()
   
   function handleinputChange(e){
     e.preventDefault()
@@ -20,7 +18,6 @@ export default function SearchBar() {
       e.preventDefault()
       dispatch(getName(names))
       setName('')
-      // history.push('/home')
     }
   
 

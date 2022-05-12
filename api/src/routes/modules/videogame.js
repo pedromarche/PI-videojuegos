@@ -54,7 +54,7 @@ router.get('/:id', async(req, res) => {
         
          return res.json(filterBd)
         } catch (error) {
-            
+            console.log(error)
         }
 
         

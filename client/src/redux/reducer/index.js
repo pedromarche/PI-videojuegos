@@ -1,4 +1,4 @@
-import { GET_ALL_GAMES, GET_ALL_GENRES, CREAT_GAME, GAME_DETAIL, GET_NAME, FILTER_RATING, FILTER_NAME, FILTER_GENRE, FILTER_ORIGIN } from '../actions/index'
+import { CLEAR_PAGE, GET_ALL_GAMES, GET_ALL_GENRES, CREAT_GAME, GAME_DETAIL, GET_NAME, FILTER_RATING, FILTER_NAME, FILTER_GENRE, FILTER_ORIGIN } from '../actions/index'
 
 const initialState={
     videogames: [],
@@ -118,6 +118,11 @@ const rootReducer = (state = initialState, {type, payload}) => {
                     }
                 }
             }
+            case CLEAR_PAGE:
+                return{
+                    ...state,
+                    detailGame: []
+                }
         default: return state
     }
     

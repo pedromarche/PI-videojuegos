@@ -8,6 +8,7 @@ export const FILTER_RATING = 'FILTER_RATING';
 export const FILTER_NAME = 'FILTER_NAME';
 export const FILTER_GENRE = 'FILTER_GENRE';
 export const FILTER_ORIGIN = 'FILTER_ORIGIN';
+export const CLEAR_PAGE = 'CLEAR_PAGE';
 
 export function getAllGames(){ // trae todos los juegos
     return async function(dispatch){
@@ -77,6 +78,11 @@ export function filtOrigin(payload) {
         payload
     }
 };
+export function clearPage(){
+    return{
+        type: CLEAR_PAGE
+    }
+}
 
 
 

@@ -5,7 +5,7 @@ import Frating from "../filters/Frating";
 import Fgenre from "../filters/Fgenre";
 import Fdbapi from "../filters/Fdbapi";
 import './nav.css'
-// import CreateGame from "../CreateGame";
+
 
 
 export default function NavBar({setActualPage}){

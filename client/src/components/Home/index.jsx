@@ -12,7 +12,7 @@ export default function Home() {
   const dispatch = useDispatch()
   const allGames = useSelector((state) => state.videogames);
   const [actualPage, setActualPage] = useState(1);
-  const [gamesViewPage, setGamesViewPage] = useState(15);
+  const gamesViewPage = 15;
   const indexOfLastGame = actualPage * gamesViewPage;
   const indexOfFirstGame = indexOfLastGame - gamesViewPage;
   let actualGame = allGames.slice(indexOfFirstGame, indexOfLastGame);
@@ -57,7 +57,7 @@ export default function Home() {
           ))
           )
            : 
-            typeof actualGame[0] === 'string' ? ( // mejorar el mensaje de error
+            typeof actualGame[0] === 'string' ? (
               <div>
                 <h1 className="error">El videojuego no existe</h1> 
               </div>

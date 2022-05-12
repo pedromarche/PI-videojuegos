@@ -11,7 +11,7 @@ function validate(input){
   if(!input.name){
     errors.name = 'El nombre es obligatorio'
   }
-  if(!input.description || input.description.length < 15){
+  if(!input.description || input.description.length < 10){
     errors.description = 'La descripcion debe tener un minimo de 15 caracteres'
   }
   if(!input.rating){
@@ -23,6 +23,8 @@ function validate(input){
     errors.released = 'Por favor ingrese la fecha de lanzamiento'
   }else if(!/(0?[1-9]|1[012])[- /.](0?[1-9]|[12][0-9]|3[01])[- /.](19|20)?[0-9]{2}$/.test(input.released)){
     errors.released = "Formato invalido (dd//mm/yyyy)"
+  }else if(input.released.split('-')[0] > 2022 || input.released.split('-')[1] > 5 || input.released.split('-')[0] < 1990){
+    errors.released = 'Fecha invalida'
   }
   if(input.platforms.length < 1){
     errors.platforms = 'Por favor ingrese las platformas compatibles'
