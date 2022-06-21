@@ -22,3 +22,13 @@
 - [ ] Express
 - [ ] Sequelize - Postgres
 
+Proyecto Videogame App - Henry 2022 Se trata del desarrollo de una SPA(Single Page Application) utilizando React y Redux para el Front-End. Por otro lado, para el Back-End utilicé Express, NodeJS y PostgreSQL. Los estilos fueron aplicados con CSS, sin el uso de librerías externas. Consumiendo los datos de la API: https://api.rawg.io/api/games.
+
+Funcionalidades:
+
+Filtrar por genero de juego ✔️
+Ordenar alfabéticamente ✔️
+Filtrar por juego con mayor y menor rating ✔️
+Buscar por nombre ✔️
+Crear un nuevo juego ✔️
+
