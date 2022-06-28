@@ -9,11 +9,11 @@ export const FILTER_NAME = 'FILTER_NAME';
 export const FILTER_GENRE = 'FILTER_GENRE';
 export const FILTER_ORIGIN = 'FILTER_ORIGIN';
 export const CLEAR_PAGE = 'CLEAR_PAGE';
-
+const url = "https://pivideogamespedro.herokuapp.com"
 export function getAllGames(){ // trae todos los juegos
     return async function(dispatch){
         try{
-        var json = await axios("http://localhost:3001/videogames");
+        var json = await axios( url +`/videogames`);
         return dispatch({type: GET_ALL_GAMES, payload: json.data});  
     }catch(e){
         console.log(e)
@@ -33,21 +33,21 @@ export function getAllGames(){ // trae todos los juegos
 
 export function getAllGenres(){ //trae todos los generos
     return async function(dispatch){
-        var json = await axios("http://localhost:3001/genres");
+        var json = await axios(url +`/genres`);
         return dispatch({type: GET_ALL_GENRES, payload: json.data});
     }
 };
 
 export function gameDetail(id){ //trae por id por params
     return async function(dispatch){
-    var json = await axios(`http://localhost:3001/videogame/${id}`);
+    var json = await axios(url +`/videogame/${id}`);
     return dispatch({type: GAME_DETAIL, payload: json.data})
     }
 }; 
 
 export function createGame(payload){ //crear juego
     return async function(dispatch){
-        var json = await axios.post("http://localhost:3001/videogame", payload)
+        var json = await axios.post(url +`/videogame`, payload)
         return json;
     }
 }
@@ -87,7 +87,7 @@ export function clearPage(){
 
 export const getName = (name) => dispatch => { // busca por name
   
-        return fetch (`http://localhost:3001/videogames?name=${name}`)
+        return fetch (url +`/videogames?name=${name}`)
             .then(response => response.json())
             .then(data => dispatch({type: GET_NAME, payload: data}))
             .catch(e => console.log(e))   
