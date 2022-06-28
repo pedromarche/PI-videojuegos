@@ -3,7 +3,7 @@ const { Router } = require('express');
 const axios = require('axios');
 const router = Router();
 const {Videogame, Genre } = require('../../db');
-
+// const e = require('express');
 
 const getFromApi = async() => { //traigo los 100 juegos de la api
     const gameList1 = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}`);
@@ -99,5 +99,19 @@ router.get('/', async(req, res) => {
     }
 })
 
+// router.get('/platform', async(req, res) =>{
+//     const {platforms} = req.query
+//     const videogames = getFromApi();
+
+//     if(platforms){
+//         const getPlatforms = await videogames.filter(e => e.platforms.toLowerCase().includes(platforms.toLowerCase()))
+//         console.log(getPlatforms)
+//         if(getPlatforms.length > 0){
+//             return res.status(200).json(getPlatforms)
+//         }else{
+//             return res.status(404).json(['no hay plataformas'])
+//         }
+//     }
+// })
 
 module.exports = router;

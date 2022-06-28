@@ -37,7 +37,7 @@ router.get('/:id', async(req, res) => {
             },
             include: {
                 model: Genre,
-                atribute: ['name']
+                // atribute: ['name']
             }
         })
         const filterBd= {
@@ -54,7 +54,7 @@ router.get('/:id', async(req, res) => {
         
          return res.json(filterBd)
         } catch (error) {
-            console.log(error)
+            
         }
 
         
@@ -78,6 +78,17 @@ router.post('/', async(req, res) => {
         console.log(e);
     }
 
+})
+
+router.delete('/:id', async(req, res) => {
+    const {id} = req.params;
+
+    const del = await Videogame.destroy({
+        where:{
+            id: id
+        }
+    })
+    return res.status(200).send('AL LOBBY');
 })
 
 
